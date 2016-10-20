@@ -1,0 +1,118 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+
+<script src="{{asset('bundles/User/js/script.js')}}"></script>
+
+<link rel="stylesheet" type="text/css" href="{{asset('bundles/User/css/style.css')}}">
+
+</head>
+<body>
+<section>
+  <header>
+    <nav class="rad-navigation">
+      <div class="rad-logo-container">
+                                 <img src="{{ asset('bundles/user/img/logo_appartoo.png', absolute=true) }}" alt="appartoo" />
+
+        <a href="#" class="rad-toggle-btn pull-right"><i class="fa fa-bars"></i></a>
+      </div>
+      <div class="rad-top-nav-container">
+  <ul class="links">
+          <li>
+              Bonjour {{ess.username}}<a class="rad-menu-item" href="{{path('fos_user_security_logout')}}"> Se déconnecter <i class="fa fa-comment-o"></i></a>
+          </li>
+         
+        </ul>
+      </div>
+    </nav>
+  </header>
+</section>
+<aside>
+  <nav class="rad-sidebar">
+    <ul>
+     
+      <li>
+        <a href="{{path('appartoo_accueil')}}">
+          <i class="fa fa-bar-chart-o">
+						<span class="icon-bg rad-bg-danger"></span>
+					</i>
+          <span class="rad-sidebar-item" style="font-size:12px;">Ajouter un contact</span>
+        </a>
+      </li>
+      <li><a href="{{path('lister_contacts')}}" class="snooz"><i class="fa fa-line-chart"><span class="icon-bg rad-bg-primary"></span></i><span class="rad-sidebar-item"style="font-size:12px;">Lister les contacts</span></a></li>
+    </ul>
+  </nav>
+</aside>
+<main>
+  <section>
+    <div class="rad-body-wrapper">
+      <div class="container-fluid">
+        <div class="col-lg-4 col-md-6 col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Formulaire d'enregistrement d'un nouveau contact</h3>
+              </div>
+              <div class="panel-body"><div class="row">
+       <center>  <div class="panel-body" >
+			    	<form  action="{{path('modifier1_contact',{'id':contact.id})}}" method="POST">
+                    <fieldset><table>
+					
+							
+			    		</div></td></tr>
+						<tr><td>Prénom : &nbsp; &nbsp;</td><td>
+			    	  	<div class="form-group">
+			    		    <input class="form-control" name="prenom" value="{{contact.prenom}}" type="text" required>
+			    		</div></td>
+						<tr><td>Nom : &nbsp;&nbsp;</td><td>
+			    		<div class="form-group">
+			    			<input class="form-control" value="{{contact.nom}}" name="nom" type="text" required>
+			    		</div></td></tr>
+							<tr><td>E-mail : &nbsp;&nbsp;</td><td>
+			    		<div class="form-group">
+                                            <input class="form-control"  name="email" value="{{contact.email}}" type="email" ></td>
+			    		</div></tr>
+						<tr><td>adresse : &nbsp;&nbsp;</td><td>
+			    		<div class="form-group">
+			    			<input class="form-control"  name="adresse" value="{{contact.adresse}}" type="text" ></td>
+			    		</div></td></tr>
+                                                
+                                                <tr><td>Téléphone : &nbsp;&nbsp;</td><td>
+			    		<div class="form-group">
+                                            <input class="form-control"  name="tel" value="{{contact.tel}}" type="number" maxlength="10" ></td>
+			    		</div></td></tr>
+                                                
+                                            
+                                                <tr><td>Site Web : &nbsp;&nbsp;</td><td>
+			    		<div class="form-group">
+                                            <input class="form-control" name="site" value="{{contact.site}}" type="url" ></td>
+			    		</div></td></tr>     
+
+</table>
+			    		<!-- <div class="checkbox">
+			    	    	<label>
+			    	    		<input name="remember" type="checkbox" value="Remember Me"> Remember Me
+			    	    	</label> 
+			    	    </div>--><tr><td>
+			    		<input class="btn btn-lg btn-success btn-block" type="submit" name="submit" value="Enregistrer le contact" style=""></td></tr>
+			    	</fieldset>
+			      	</form>
+			    </div></center> </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+</body>
+</html>
